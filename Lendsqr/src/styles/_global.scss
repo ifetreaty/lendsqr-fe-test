@@ -15,11 +15,8 @@ html {
 body {
   width: 100%;
   height: 100%;
-  font-family: map-get($fonts, body);
-}
-
-html, body {
-  color: map-get(map-get($colors, gray), 100);
+  font-family: $font-family;
+  color: $primary-gray;
 }
 
 #root {
