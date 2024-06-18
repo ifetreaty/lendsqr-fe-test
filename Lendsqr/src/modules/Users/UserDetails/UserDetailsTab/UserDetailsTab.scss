@@ -1,0 +1,27 @@
+@import "../../../../styles//variables";
+
+.tabs {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+
+  .tab {
+    padding: 10px 20px;
+    border: none;
+    background-color: transparent;
+    color: $primary-gray;
+    font-size: 16px;
+    cursor: pointer;
+
+    &.active {
+      color: $primary-teal;
+      font-weight: bold;
+    }
+
+    &:hover {
+      color: $primary-font-blue;
+    }
+  }
+}

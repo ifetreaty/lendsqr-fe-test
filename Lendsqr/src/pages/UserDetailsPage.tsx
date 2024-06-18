@@ -6,6 +6,11 @@ import UserDetailsHeader from "../modules/Users/UserDetails/UserDetailsHeader/Us
 import UserDetailsTabs from "../modules/Users/UserDetails/UserDetailsTab/UserDetailsTab";
 import { useState } from "react";
 import UserDetailsSection from "../modules/Users/UserDetails/UserDetailsSection/UserDetailsSection";
+import {
+  AvatarIcon,
+  EmptyStarIcon,
+  FilledStarIcon,
+} from "../components/icons/UserDetailsIcons";
 
 export default function UserDetailsPage() {
   const { selectedUser } = useUserContext();
@@ -37,6 +42,10 @@ export default function UserDetailsPage() {
   const educationEmployment = generalDetails?.educationAndEmployment;
   const socials = generalDetails?.socialsData;
   const guarantor = generalDetails?.guarantorInformation;
+  const accountNumber = selectedUser?.accountNumber;
+  const bank = selectedUser?.bank;
+
+  console.log("selected: ", selectedUser);
 
   return (
     <div className="user-details-page">
@@ -47,30 +56,55 @@ export default function UserDetailsPage() {
         onActivate={handleActivateUser}
       />
       <div className="user-info-tabs">
-        <div className="user-info">
-          <h2>{selectedUser?.generalDetails?.personalInformation?.fullName}</h2>
+        <div className="basic-info">
+          <div className="info">
+            <div className="user-details">
+              <div className="user-img">
+                <AvatarIcon />
+              </div>
+              <div className="user-name">
+                <h3>
+                  {selectedUser?.generalDetails?.personalInformation?.fullName}
+                </h3>
+                <p>{selectedUser?.id}</p>
+              </div>
+            </div>
+            <div className="user-tier">
+              <h3>User's Tier</h3>
+              <div className="ratings">
+                <FilledStarIcon />
+                <EmptyStarIcon />
+                <EmptyStarIcon />
+              </div>
+            </div>
+            <div className="user-balance">
+              {/* <h3>{`₦${Math.ceil(educationEmployment?.loanRepayment * 700).toLocaleString("us-EN")}`}</h3> */}
+              <h3>N200,000</h3>
+              <p>{`${accountNumber}/${bank}`}</p>
+            </div>
+          </div>
+          <UserDetailsTabs activeTab={activeTab} onTabClick={handleTabClick} />
         </div>
-        <UserDetailsTabs activeTab={activeTab} onTabClick={handleTabClick} />
-      </div>
-      <div className="user-details-container">
-        <div className="user-details-sections">
-          {personalInformation && (
-            <UserDetailsSection
-              title="Personal Information"
-              data={personalInformation}
-            />
-          )}
-          {educationEmployment && (
-            <UserDetailsSection
-              title="Education and Employment"
-              data={educationEmployment}
-            />
-          )}
-          {socials && <UserDetailsSection title="Socials" data={socials} />}
-          {guarantor && (
-            <UserDetailsSection title="Guarantor" data={guarantor} />
-          )}
-          {guarantor && <UserDetailsSection title=" " data={guarantor} />}
+        <div className="user-details-container">
+          <div className="user-details-sections">
+            {personalInformation && (
+              <UserDetailsSection
+                title="Personal Information"
+                data={personalInformation}
+              />
+            )}
+            {educationEmployment && (
+              <UserDetailsSection
+                title="Education and Employment"
+                data={educationEmployment}
+              />
+            )}
+            {socials && <UserDetailsSection title="Socials" data={socials} />}
+            {guarantor && (
+              <UserDetailsSection title="Guarantor" data={guarantor} />
+            )}
+            {guarantor && <UserDetailsSection title=" " data={guarantor} />}
+          </div>
         </div>
       </div>
     </div>

@@ -8,6 +8,9 @@ export interface IUserData {
   phoneNumber?: string | number;
   dateJoined?: string | Date;
   status?: TStatus;
+  accountNumber?: string | number;
+  tier?: string;
+  bank?: string;
   generalDetails?: IGeneralDetails;
 }
 
