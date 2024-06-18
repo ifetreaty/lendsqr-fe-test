@@ -1,3 +1,5 @@
+import "./UserDetailsTab.scss";
+
 interface IUserDetailsTabsProps {
   activeTab: string;
   onTabClick: (tabName: string) => void;

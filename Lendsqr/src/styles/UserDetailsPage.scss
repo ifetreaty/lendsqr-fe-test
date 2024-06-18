@@ -5,47 +5,135 @@
 
   .user-info-tabs {
     background-color: #f9f9f9;
-    border: 1px solid #ccc;
     border-radius: 8px;
-    padding: 20px;
-    margin-top: 20px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 0 20px;
+   
 
-    .user-info {
-      margin-bottom: 20px;
-      h2 {
-        font-size: 24px;
-        margin-bottom: 5px;
-      }
-      p {
-        color: $primary-gray;
-      }
-    }
+    .basic-info {
+      background: #ffffff;
+      border: 1px solid rgba(33, 63, 125, 0.06);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      border-radius: 4px;
+      margin-top: 20px;
+      padding: 1rem;
+      padding-bottom: 0.5rem;
 
-    .tabs {
-      display: flex;
-      gap: 20px;
-      overflow-x: auto;
-      border-bottom: 1px solid #ccc;
-      padding-bottom: 10px;
-      margin-bottom: 20px;
+      .info {
+        width: 60%;
+        display: flex;
+        justify-content: space-between;
+        align-items: stretch; 
+        margin-bottom: 60px;
 
-      .tab {
-        padding: 10px 20px;
-        border: none;
-        background-color: transparent;
-        color: $primary-gray;
-        font-size: 16px;
-        cursor: pointer;
-        transition: color 0.3s ease;
-
-        &.active {
-          color: $primary-font-blue;
-          font-weight: bold;
+        .user-details {
+          flex: 2; 
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          padding: 0 10px;
+          border-right: 1px solid #e0e0e0;
         }
 
-        &:hover {
-          color: $primary-font-blue;
+        .user-tier {
+          flex: 1; 
+          text-align: center;
+          padding: 30px 10px;
+          border-right: 1px solid #e0e0e0;
+          h3 {
+            font-weight: 500;
+            margin-bottom: 10px;
+            font-size: 14px;
+            line-height: 19px;
+            color: $primary-gray;
+          }
+          .ratings {
+            display: flex;
+            justify-content: center;
+            img {
+              height: 1.3rem;
+              margin: 0 0.2rem;
+            }
+          }
+        }
+
+        .user-balance {
+          // flex: 2;
+          text-align: center;
+          padding: 30px 20px;
+          h3 {
+            font-weight: 500;
+            font-size: 22px;
+            line-height: 26px;
+            color: $primary-font-blue;
+            text-align: left;
+            margin-bottom: 8px;
+          }
+          p {
+            font-weight: 400;
+            font-size: 12px;
+            line-height: 16px;
+            color: $primary-font-blue;
+          }
+        }
+        
+        .user-img {
+          background: #dce1eb;
+          border-radius: 50%;
+          width: 100px;
+          height: 100px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+          }
+        }
+
+        .user-name {
+          text-align: left;
+          margin-left: 2rem;
+          h3 {
+            font-weight: 500;
+            font-size: 22px;
+            line-height: 26px;
+            color: $primary-font-blue;
+            margin-bottom: 8px;
+          }
+          p {
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 16px;
+            color: $primary-gray;
+          }
+        }
+      }
+
+      .tabs {
+        display: flex;
+        gap: 20px;
+        overflow-x: auto;
+        padding-bottom: 10px;
+        margin-bottom: 20px;
+
+        .tab {
+          padding: 10px 20px;
+          border: none;
+          background-color: transparent;
+          color: $primary-gray;
+          font-size: 16px;
+          cursor: pointer;
+
+          &.active {
+            color: $primary-teal;
+            font-weight: bold;
+          }
+
+          &:hover {
+            color: $primary-teal;
+          }
         }
       }
     }
@@ -56,12 +144,11 @@
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-top: 2rem;
 
     .user-details-sections {
       display: flex;
       flex-direction: column;
-
-     
     }
   }
 }

@@ -10,6 +10,9 @@ export const transformApiResponse = (item: TApiResponse): IUserData => ({
   phoneNumber: item.phone_number,
   dateJoined: item.date_joined ? formatDate(item.date_joined) : "",
   status: item.status,
+  accountNumber: item.account_number,
+  tier: item.user_tier,
+  bank: item.bank,
   generalDetails: {
     personalInformation: {
       fullName: item.full_name,
