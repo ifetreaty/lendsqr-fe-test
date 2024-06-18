@@ -61,7 +61,7 @@ export default function UserTable() {
                       <MoreDetailsIcon
                         onClick={() => handleDropdownToggle(index)}
                       />
-                      {dropdownIndex === index && <DropdownMenu />}
+                      {dropdownIndex === index && <DropdownMenu user={user} />}
                     </div>
                   </td>
                 </tr>
