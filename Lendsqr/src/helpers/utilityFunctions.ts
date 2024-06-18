@@ -8,3 +8,27 @@ export const formatNumberWithThousandSeparators = (number?: number): string => {
 
   return number.toLocaleString("en-US");
 };
+
+/**
+ * Formats a date into the "MMM DD, YYYY" format.
+ * @param {Date | string | number} date - The date to format.
+ * @returns {string} The formatted date string in "MMM DD, YYYY" format, or an empty string if the input is not a valid date.
+ */
+export const formatDate = (date?: Date | string | number): string => {
+  if (!date) return "";
+
+  const parsedDate = new Date(date);
+
+  if (!(parsedDate instanceof Date) || isNaN(parsedDate.getTime())) {
+    return ""; // Return empty string for invalid or empty input
+  }
+
+  const options: Intl.DateTimeFormatOptions = {
+    month: "short",
+    day: "2-digit",
+    year: "numeric",
+  };
+
+  // Format the date using toLocaleDateString
+  return parsedDate.toLocaleDateString("en-US", options);
+};

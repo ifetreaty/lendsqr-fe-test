@@ -10,4 +10,4 @@ export interface IUserData {
   generalDetails?: IGeneralDetails;
 }
 
-type TStatus = "active" | "inactive" | "pending" | "blacklisted";
+export type TStatus = "active" | "inactive" | "pending" | "blacklisted";

@@ -1,0 +1,32 @@
+@import "../../../styles/variables";
+
+.custom-status-badge {
+  display: inline-block;
+  padding: 4px 16px;
+  border-radius: 100px;
+  text-align: center;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 200%;
+  text-transform: capitalize;
+
+  &.blacklisted {
+    background-color: rgba($primary-red, 0.1);
+    color: $primary-red;
+  }
+
+  &.inactive {
+    background-color: rgba($primary-gray, 0.1);
+    color: $primary-gray;
+  }
+
+  &.active {
+    background-color: rgba($primary-green, 0.1);
+    color: $primary-green;
+  }
+
+  &.pending {
+    background-color: rgba($primary-yellow, 0.1);
+    color: $primary-yellow;
+  }
+}
