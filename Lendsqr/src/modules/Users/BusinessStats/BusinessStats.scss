@@ -1,0 +1,30 @@
+.business-stats {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap; 
+}
+
+.stats-card {
+  border: 1px solid #ccc;
+  padding: 1.5rem;
+  border-radius: 10px;
+  background-color: #f9f9f9;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.stats-card-icon {
+  margin-bottom: 10px;
+}
+
+.stats-card-title {
+  font-size: 1.2em;
+  margin-bottom: 5px;
+}
+
+.stats-card-value {
+  font-size: 2em;
+  font-weight: bold;
+}

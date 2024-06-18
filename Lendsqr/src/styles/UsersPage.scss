@@ -1,0 +1,17 @@
+@import "../styles/variables";
+
+.users-page {
+  padding: 20px;
+  background-color: #f8f9fa;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.users-page h1 {
+  font-size: 24px;
+  font-weight: 500;
+  margin-bottom: 20px;
+  color: $primary-font-blue;
+}
+

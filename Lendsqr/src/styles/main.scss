@@ -2,10 +2,13 @@
 @import './global';
 @import '../layouts/AppLayout/AppSidebar.scss';
 @import '../layouts/LandingLayout/LandingNavbar.scss';
+@import "../layouts/AppLayout/MainContent.scss";
 
 
 .App {
   display: flex;
+  background-color: #f8f9fa;
+  
 
   .content {
     margin-left: 200px;
@@ -14,5 +17,6 @@
     width: calc(100% - 200px);
     height: calc(100% - 60px);
     overflow-y: auto;
+
   }
 }
