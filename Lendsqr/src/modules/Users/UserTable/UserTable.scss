@@ -1,0 +1,44 @@
+@import "../../../styles/variables";
+
+.user-table-container {
+  width: 100%;
+  overflow-x: auto;
+  margin-top: 2rem;
+  padding: 0 3rem;
+  background: #ffffff;
+}
+
+.user-table {
+  width: 100%;
+  border-collapse: collapse; 
+}
+
+.user-table th,
+.user-table td {
+  border-bottom: 1px solid rgba($primary-font-blue, 0.1);
+  padding: 1.5rem 0;
+  text-align: left;
+  font-size: 14px;
+}
+
+.user-table th {
+  background-color: #ffffff;
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: 600;
+  border-bottom: none;
+}
+
+.user-table tbody tr:hover {
+  background-color: rgba($primary-teal, 0.06);
+}
+
+.user-table th:first-child,
+.user-table td:first-child {
+  border-left: none;
+}
+
+.user-table th:last-child,
+.user-table td:last-child {
+  border-right: none;
+}

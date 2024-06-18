@@ -618,3 +618,43 @@ export const UserStatsIcon = ({
     </defs>
   </svg>
 );
+
+export const ArrowLeftIcon = ({
+  width = "24px",
+  height = "24px",
+}: IconProps) => (
+  <svg
+    width={width}
+    height={height}
+    viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <rect width="24" height="24" rx="4" fill="#213F7D" fill-opacity="0.1" />
+    <g opacity="0.6">
+      <path
+        d="M15.0061 16.0573C15.8472 16.8984 14.5434 18.1595 13.745 17.3184L8.99424 12.5676C8.61581 12.2313 8.61581 11.6428 8.99424 11.3065L13.6186 6.64002C14.4597 5.84104 15.7208 7.10267 14.8797 7.94322L10.8859 11.937L15.0061 16.0573Z"
+        fill="#213F7D"
+      />
+    </g>
+  </svg>
+);
+
+export const ArrowRightIcon = ({
+  width = "24px",
+  height = "24px",
+}: IconProps) => (
+  <svg
+    width={width}
+    height={height}
+    viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <rect width="24" height="24" rx="4" fill="#213F7D" fill-opacity="0.1" />
+    <path
+      d="M8.99391 7.94274C8.15281 7.10165 9.45656 5.8405 10.255 6.68165L15.0058 11.4324C15.3842 11.7687 15.3842 12.3572 15.0058 12.6935L10.3814 17.36C9.54033 18.159 8.27918 16.8973 9.12033 16.0568L13.1141 12.063L8.99391 7.94274Z"
+      fill="#213F7D"
+    />
+  </svg>
+);
