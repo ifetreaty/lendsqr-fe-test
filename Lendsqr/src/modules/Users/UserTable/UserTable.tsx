@@ -1,36 +1,22 @@
-import { useEffect, useState } from "react";
-import { IUserData } from "../../../types/userData";
-import { fetchUserData } from "../../../services/userService";
+import { useState } from "react";
+
 import { formatDate } from "../../../helpers/utilityFunctions";
 
 import "./UserTable.scss";
 import Pagination from "../../../components/custom/CustomPagination/Pagination";
 import CustomStatusBadge from "../../../components/custom/CustomStatusBadge/CustomStatusBadge";
 import SkeletonLoader from "../../../components/custom/CustomSkeletonLoader/SkeletonLoader";
+import useUserData from "../../../hooks/useUserData";
+import useDropdown from "../../../hooks/useDropdown";
+import { MoreDetailsIcon } from "../../../components/icons/UserTableIcons";
+import DropdownMenu from "./DropdownMenu/DropdownMenu";
 
 const rowsPerPage = 10;
 
 export default function UserTable() {
-  const [userData, setUserData] = useState<IUserData[]>([]);
-  const [error, setError] = useState<string | null>(null);
+  const { userData, loading, error } = useUserData();
   const [currentPage, setCurrentPage] = useState(1);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      setLoading(true);
-      try {
-        const data = await fetchUserData();
-        setUserData(data);
-      } catch (error) {
-        setError("Failed to fetch user data");
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchData();
-  }, []);
+  const { dropdownIndex, handleDropdownToggle } = useDropdown();
 
   const indexOfLastItem = currentPage * rowsPerPage;
   const indexOfFirstItem = indexOfLastItem - rowsPerPage;
@@ -69,6 +55,14 @@ export default function UserTable() {
                     <CustomStatusBadge variant={user.status}>
                       {user.status}
                     </CustomStatusBadge>
+                  </td>
+                  <td>
+                    <div className="action-container">
+                      <MoreDetailsIcon
+                        onClick={() => handleDropdownToggle(index)}
+                      />
+                      {dropdownIndex === index && <DropdownMenu />}
+                    </div>
                   </td>
                 </tr>
               ))

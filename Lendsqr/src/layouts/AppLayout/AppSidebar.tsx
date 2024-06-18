@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
 import navConfig from "./navConfig";
-import { BriefcaseIcon } from "../../components/icons/Icons";
+import { BriefcaseIcon } from "../../components/icons/NavbarIcons";
 import "./AppSidebar.scss";
 
 export default function AppSidebar() {

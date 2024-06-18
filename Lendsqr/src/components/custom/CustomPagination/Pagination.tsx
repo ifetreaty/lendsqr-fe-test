@@ -1,4 +1,4 @@
-import { ArrowLeftIcon, ArrowRightIcon } from "../../icons/Icons";
+import { ArrowLeftIcon, ArrowRightIcon } from "../../icons/UserTableIcons";
 
 import "./Pagination.scss";
 

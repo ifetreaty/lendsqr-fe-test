@@ -20,7 +20,7 @@ import {
   UserFriendsIcon,
   UserTimesIcon,
   UsersIcon,
-} from "../../components/icons/Icons";
+} from "../../components/icons/NavbarIcons";
 
 type NavConfigType = {
   navGroup: null | string;
