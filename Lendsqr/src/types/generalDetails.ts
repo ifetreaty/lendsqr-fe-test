@@ -1,4 +1,4 @@
-interface IPersonalInformation {
+export interface IPersonalInformation {
   fullName?: string;
   phoneNumber?: string | number;
   email?: string;
@@ -9,9 +9,9 @@ interface IPersonalInformation {
   residenceType?: string;
 }
 
-type TGender = "male" | "female";
+export type TGender = "male" | "female";
 
-interface IEmploymentData {
+export interface IEmploymentData {
   educationLevel?: string;
   employmentStatus?: string;
   employmentSector?: string;
@@ -21,13 +21,13 @@ interface IEmploymentData {
   loanRepayment?: string;
 }
 
-interface ISocialsData {
+export interface ISocialsData {
   twitter?: string;
   facebook?: string;
   instagram?: string;
 }
 
-interface IGuarantorInformation {
+export interface IGuarantorInformation {
   fullName?: string;
   phoneNumber?: string | number;
   email?: string;
@@ -40,3 +40,9 @@ export interface IGeneralDetails {
   socialsData?: ISocialsData;
   guarantorInformation?: IGuarantorInformation;
 }
+
+export type TDetailsData =
+  | IPersonalInformation
+  | IEmploymentData
+  | ISocialsData
+  | IGuarantorInformation;

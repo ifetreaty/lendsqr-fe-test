@@ -1,0 +1,83 @@
+@import "../../../../styles/variables";
+
+.user-details-header-page {
+  padding: 20px;
+
+  .back-to-users {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    color: $primary-gray;
+    margin-bottom: 20px;
+
+    &:hover {
+      text-decoration: none;
+    }
+
+    svg {
+      margin-right: 10px;
+    }
+  }
+
+  .user-details-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+
+    h1 {
+      margin-top: 0;
+      font-size: 24px;
+      font-weight: 500;
+      color: $primary-font-blue;
+    }
+
+    .action-buttons {
+      margin-left: auto;
+      display: flex;
+      gap: 20px;
+      
+
+      button {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        padding: 10px 16px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        background-color: #f8f9fa;
+        color: #333;
+        text-transform: uppercase;
+        font-family: $font-family;
+        font-size: 14px;
+        font-weight: 600;
+        letter-spacing: 1px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+
+        svg {
+          width: 16px;
+          height: 16px;
+        }
+      }
+
+      .blacklist-button {
+        color: $primary-red;
+        border-color: $primary-red;
+
+        &:hover {
+          background-color: rgba($primary-red, 0.06);
+        }
+      }
+
+      .activate-button {
+        color: $primary-teal;
+        border-color: $primary-teal;
+
+        &:hover {
+          background-color: rgba($primary-teal, 0.06);
+        }
+      }
+    }
+  }
+}
