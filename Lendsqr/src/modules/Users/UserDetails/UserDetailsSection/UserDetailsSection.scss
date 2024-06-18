@@ -1,0 +1,42 @@
+@import "../../../../styles/variables";
+
+.user-details-section {
+  padding: 30px 10px;
+  border-bottom: 1px solid #e0e0e0;
+  background-color: #ffffff; 
+
+  h3 {
+    margin-bottom: 20px;
+    font-size: 16px;
+    font-weight: 500;
+    color: $primary-font-blue;
+
+  }
+
+  .details-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(20%, 1fr));
+    gap: 20px;
+  
+    .details-row {
+      display: flex;
+      flex-direction: column;
+  
+      .details-key {
+        font-weight: 400;
+        font-size: 12px;
+        text-transform: uppercase;
+        margin-bottom: 5px;
+      }
+  
+      .details-value {
+        font-weight: 500;
+        font-size: 16px;
+      }
+    }
+  }
+}
+
+
+
+
