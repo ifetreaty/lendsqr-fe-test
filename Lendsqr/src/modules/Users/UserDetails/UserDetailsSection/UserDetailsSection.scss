@@ -2,9 +2,9 @@
 
 .user-details-section {
   padding: 30px 10px;
-  border-bottom: 1px solid rgba($primary-font-blue, 0.1);
   background-color: #ffffff; 
 
+ 
   h3 {
     margin-bottom: 20px;
     font-size: 16px;
@@ -35,7 +35,13 @@
       }
     }
   }
+  &:not(:last-child) {
+    border-bottom: 1px solid rgba($primary-font-blue, 0.1);
+  }
 }
+
+
+
 
 
 

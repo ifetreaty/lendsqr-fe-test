@@ -8,19 +8,75 @@ import CustomStatusBadge from "../../../components/custom/CustomStatusBadge/Cust
 import SkeletonLoader from "../../../components/custom/CustomSkeletonLoader/SkeletonLoader";
 import useUserData from "../../../hooks/useUserData";
 import useDropdown from "../../../hooks/useDropdown";
-import { MoreDetailsIcon } from "../../../components/icons/UserTableIcons";
-import DropdownMenu from "./DropdownMenu/DropdownMenu";
+import {
+  FilterIcon,
+  MoreDetailsIcon,
+} from "../../../components/icons/UserTableIcons";
+import DropdownMenu from "./ActionsMenu/DropdownMenu";
+import FilterDropdownMenu from "./FilterDropdownMenu/FilterDropdownMenu";
 
 const rowsPerPage = 10;
 
 export default function UserTable() {
   const { userData, loading, error } = useUserData();
+
   const [currentPage, setCurrentPage] = useState(1);
   const { dropdownIndex, handleDropdownToggle } = useDropdown();
+  const [filters, setFilters] = useState({
+    organization: "",
+    username: "",
+    email: "",
+    phoneNumber: "",
+    dateJoined: "",
+    status: "",
+  });
+
+  const [filterDropdownVisible, setFilterDropdownVisible] = useState<
+    string | null
+  >(null);
+
+  const handleFilterChange = (column: string, value: string) => {
+    setFilters((prev) => ({ ...prev, [column]: value }));
+  };
+
+  const handleResetFilters = () => {
+    setFilters({
+      organization: "",
+      username: "",
+      email: "",
+      phoneNumber: "",
+      dateJoined: "",
+      status: "",
+    });
+  };
+
+  const handleFilter = () => {
+    setFilterDropdownVisible(null);
+  };
+
+  const filteredData = userData.filter((user) => {
+    return Object.keys(filters).every((key) => {
+      const filterValue = filters[key as keyof typeof filters];
+      const userValue = user[key as keyof typeof user];
+
+      if (!filterValue) return true;
+
+      if (typeof userValue === "string") {
+        return userValue.toLowerCase().includes(filterValue.toLowerCase());
+      } else if (typeof userValue === "number") {
+        return userValue.toString().includes(filterValue);
+      } else if (userValue instanceof Date) {
+        return userValue.toISOString().includes(filterValue);
+      }
+
+      return true;
+    });
+  });
 
   const indexOfLastItem = currentPage * rowsPerPage;
   const indexOfFirstItem = indexOfLastItem - rowsPerPage;
-  const currentData = userData.slice(indexOfFirstItem, indexOfLastItem);
+  // const currentData = userData.slice(indexOfFirstItem, indexOfLastItem);
+  const currentData = filteredData.slice(indexOfFirstItem, indexOfLastItem);
 
   if (error) {
     return <div>Error: {error}</div>;
@@ -32,12 +88,38 @@ export default function UserTable() {
         <table className="user-table">
           <thead>
             <tr>
-              <th>Organization</th>
-              <th>Username</th>
-              <th>Email</th>
-              <th>Phone Number</th>
-              <th>Date Joined</th>
-              <th>Status</th>
+              {[
+                "organization",
+                "username",
+                "email",
+                "phoneNumber",
+                "dateJoined",
+                "status",
+              ].map((header) => (
+                <th key={header}>
+                  <div className="header-container">
+                    <span>
+                      {header.charAt(0).toUpperCase() + header.slice(1)}
+                    </span>
+                    <FilterIcon
+                      className="filter-icon"
+                      onClick={() =>
+                        setFilterDropdownVisible(
+                          filterDropdownVisible === header ? null : header
+                        )
+                      }
+                    />
+                  </div>
+                  {filterDropdownVisible === header && (
+                    <FilterDropdownMenu
+                      filters={filters}
+                      onFilterChange={handleFilterChange}
+                      onFilter={handleFilter}
+                      onReset={handleResetFilters}
+                    />
+                  )}
+                </th>
+              ))}
             </tr>
           </thead>
           <tbody>

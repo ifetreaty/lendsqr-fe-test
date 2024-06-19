@@ -85,27 +85,32 @@ export default function UserDetailsPage() {
           </div>
           <UserDetailsTabs activeTab={activeTab} onTabClick={handleTabClick} />
         </div>
-        <div className="user-details-container">
-          <div className="user-details-sections">
-            {personalInformation && (
-              <UserDetailsSection
-                title="Personal Information"
-                data={personalInformation}
-              />
-            )}
-            {educationEmployment && (
-              <UserDetailsSection
-                title="Education and Employment"
-                data={educationEmployment}
-              />
-            )}
-            {socials && <UserDetailsSection title="Socials" data={socials} />}
-            {guarantor && (
-              <UserDetailsSection title="Guarantor" data={guarantor} />
-            )}
-            {guarantor && <UserDetailsSection title=" " data={guarantor} />}
+        {activeTab === "general" ? (
+          <div className="user-details-container">
+            <div className="user-details-sections">
+              {personalInformation && (
+                <UserDetailsSection
+                  title="Personal Information"
+                  data={personalInformation}
+                />
+              )}
+              {educationEmployment && (
+                <UserDetailsSection
+                  title="Education and Employment"
+                  data={educationEmployment}
+                />
+              )}
+              {socials && <UserDetailsSection title="Socials" data={socials} />}
+              {guarantor && (
+                <UserDetailsSection title="Guarantor" data={guarantor} />
+              )}
+            </div>
           </div>
-        </div>
+        ) : (
+          <div className="coming-soon">
+            <h3>We see it coming...</h3>
+          </div>
+        )}
       </div>
     </div>
   );

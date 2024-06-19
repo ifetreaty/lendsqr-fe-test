@@ -19,7 +19,7 @@ export default function DropdownMenu({ user }: IDropdownMenuProps) {
 
   const handleViewMore = () => {
     setSelectedUser(user);
-    navigate("/user-details");
+    navigate("/user/user-details");
   };
 
   return (
