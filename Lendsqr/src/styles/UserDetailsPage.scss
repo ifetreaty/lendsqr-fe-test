@@ -12,11 +12,10 @@
     .basic-info {
       background: #ffffff;
       border: 1px solid rgba(33, 63, 125, 0.06);
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
       border-radius: 4px;
       margin-top: 20px;
       padding: 1rem;
-      padding-bottom: 0.5rem;
+      padding-bottom: 0;
 
       .info {
         width: 60%;
@@ -115,8 +114,8 @@
         display: flex;
         gap: 20px;
         overflow-x: auto;
-        padding-bottom: 10px;
-        margin-bottom: 20px;
+        padding: 0 1rem;
+      
 
         .tab {
           padding: 10px 20px;
@@ -128,11 +127,14 @@
 
           &.active {
             color: $primary-teal;
-            font-weight: bold;
+            font-weight: 400;
+            padding-bottom: -2rem;
+            border-bottom: 2px solid $primary-teal;
           }
 
           &:hover {
             color: $primary-teal;
+            opacity: .8;
           }
         }
       }
@@ -151,4 +153,13 @@
       flex-direction: column;
     }
   }
+
+  .coming-soon {
+    padding: 80px 10px;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 500;
+    color: $primary-font-blue;
+  }
+  
 }

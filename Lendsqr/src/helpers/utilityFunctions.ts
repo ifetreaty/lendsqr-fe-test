@@ -32,3 +32,56 @@ export const formatDate = (date?: Date | string | number): string => {
   // Format the date using toLocaleDateString
   return parsedDate.toLocaleDateString("en-US", options);
 };
+
+/**
+ * Converts a social media URL to a handle (e.g., "https://twitter.com/DanielsReilly" to "@DanielsReilly").
+ * @param {string} url - The URL to convert.
+ * @returns {string} The social media handle, or an empty string if the URL is invalid or cannot be parsed.
+ */
+export const urlToSocialMediaHandle = (url?: string): string => {
+  if (typeof url !== "string" || !url) return "";
+
+  try {
+    const urlObj = new URL(url);
+    const pathname = urlObj.pathname;
+
+    const handle = pathname.split("/").filter(Boolean).pop();
+
+    if (handle) {
+      return `@${handle}`;
+    } else {
+      return "";
+    }
+  } catch (error) {
+    return "";
+  }
+};
+
+/**
+ * Formats a string by replacing underscores with spaces and converting to title case.
+ * @param {string} key - The key to format.
+ * @returns {string} The formatted string.
+ */
+export const formatKeyAsTitleCase = (key: string): string => {
+  return key
+    .replace(/([A-Z])/g, " $1")
+    .replace(/^./, (str) => str.toUpperCase())
+    .trim();
+};
+
+/**
+ * Renders a value based on the provided key. If the key matches "twitter", "facebook", or "instagram",
+ * it converts the value to a social media handle using the urlToSocialMediaHandle function.
+ * @param {string} key - The key associated with the value.
+ * @param {string} value - The value to render.
+ * @returns {React.ReactNode | string} The rendered React node or string value.
+ */
+export const renderValue = (
+  key: string,
+  value: string
+): React.ReactNode | string => {
+  if (key === "twitter" || key === "facebook" || key === "instagram") {
+    return urlToSocialMediaHandle(value);
+  }
+  return value;
+};

@@ -3,9 +3,9 @@
 .tabs {
   display: flex;
   gap: 20px;
+  justify-content: space-between;
   overflow-x: auto;
-  padding-bottom: 10px;
-  margin-bottom: 20px;
+ 
 
   .tab {
     padding: 10px 20px;
@@ -17,7 +17,8 @@
 
     &.active {
       color: $primary-teal;
-      font-weight: bold;
+      font-weight: 400;
+      
     }
 
     &:hover {
