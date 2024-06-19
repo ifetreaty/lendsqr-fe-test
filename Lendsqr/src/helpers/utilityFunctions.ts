@@ -85,3 +85,20 @@ export const renderValue = (
   }
   return value;
 };
+
+/**
+ * Extracts the first name from a given full name.
+ * Assumes the first word in the name is the first name.
+ * @param fullName - The full name from which to extract the first name.
+ * @returns The extracted first name. Returns an empty string if no valid name is found or if fullName is undefined.
+ */
+export const extractFirstName = (fullName: string | undefined): string => {
+  if (!fullName || typeof fullName !== "string" || !fullName.trim()) return "";
+
+  const words: string[] = fullName.trim().split(/\s+/);
+  if (words.length > 0) {
+    return words[0];
+  } else {
+    return "";
+  }
+};
