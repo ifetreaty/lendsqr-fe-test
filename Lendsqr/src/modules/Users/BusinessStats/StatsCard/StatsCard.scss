@@ -5,4 +5,14 @@
   font-weight: 600;
   line-height: 28.15px;
   color: $primary-font-blue;
+
+  @media (max-width: 768px) {
+    font-size: 20px;
+    line-height: 24px;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 18px;
+    line-height: 22px;
+  }
 }

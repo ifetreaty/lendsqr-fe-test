@@ -78,7 +78,6 @@ export default function UserDetailsPage() {
               </div>
             </div>
             <div className="user-balance">
-              {/* <h3>{`₦${Math.ceil(educationEmployment?.loanRepayment * 700).toLocaleString("us-EN")}`}</h3> */}
               <h3>N200,000</h3>
               <p>{`${accountNumber}/${bank}`}</p>
             </div>

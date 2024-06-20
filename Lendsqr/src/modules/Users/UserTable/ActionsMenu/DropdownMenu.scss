@@ -8,6 +8,13 @@
   z-index: 10;
   min-width: 11.25rem;
   padding: 10px;
+
+  @media (max-width: 768px) {
+    right: 0; 
+    left: auto; 
+    min-width: 100%; 
+    margin-top: 0.5rem;
+  }
 }
 
 .dropdown-item {

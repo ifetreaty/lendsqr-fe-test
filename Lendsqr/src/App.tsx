@@ -24,7 +24,10 @@ function App() {
           </Route>
           <Route element={<AuthenticatedLayout />}>
             <Route path="/app/users" element={<UsersPage />} />
-            <Route path="/user/user-details" element={<UserDetailsPage />} />
+            <Route
+              path="/app/user/user-details"
+              element={<UserDetailsPage />}
+            />
           </Route>
           <Route path="/coming-soon" element={<ComingSoonPage />} />
           <Route path="*" element={<Navigate to="/coming-soon" />} />

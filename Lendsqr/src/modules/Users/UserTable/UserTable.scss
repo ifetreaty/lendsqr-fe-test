@@ -7,6 +7,12 @@
   margin-top: 2.5rem;
   padding: 0 3rem;
   background: #ffffff;
+
+  @media (max-width: 768px) {
+    padding: 0 1rem;
+    margin-top: 1rem;
+    height: auto;
+  }
 }
 
 .user-table {
@@ -19,6 +25,11 @@
     padding: 1.4rem 0;
     text-align: left;
     font-size: 14px;
+
+    @media (max-width: 768px) {
+      padding: 0.8rem 0.5rem;
+      font-size: 12px;
+    }
   }
 
   th {
@@ -28,6 +39,10 @@
     font-weight: 600;
     border-bottom: none;
     position: relative;
+
+    @media (max-width: 768px) {
+      font-size: 10px;
+    }
   }
 
   .header-container {
@@ -36,6 +51,7 @@
 
     .filter-icon {
       margin-left: 8px;
+      cursor: pointer;
     }
   }
 
@@ -51,5 +67,31 @@
   th:last-child,
   td:last-child {
     border-right: none;
+  }
+
+  @media (max-width: 768px) {
+    th, td {
+      white-space: nowrap;
+    }
+  }
+}
+
+.filter-dropdown-menu {
+  position: absolute;
+  background: #ffffff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba($primary-font-blue, 0.1);
+  padding: 1rem;
+  z-index: 10;
+
+  input {
+    width: 100%;
+    padding: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .filter-actions {
+    display: flex;
+    justify-content: space-between;
   }
 }

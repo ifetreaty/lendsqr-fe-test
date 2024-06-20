@@ -20,7 +20,6 @@ export default function SignIn() {
           src={illustrationSvg}
           alt="illustration"
           className="sign-in__illustration"
-          style={{ width: "85%", marginLeft: "3rem" }}
         />
       </div>
       <div className="sign-in__right">
