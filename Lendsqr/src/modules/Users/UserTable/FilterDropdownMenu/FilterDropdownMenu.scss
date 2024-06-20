@@ -4,14 +4,14 @@
   position: absolute;
   background: #ffffff;
   border: 1px solid #ffffff;
-  width: 16rem;
-  // height: 37.5rem;
-  padding: 20px;
+  width: 16.875rem;
+  margin-top: 14px;
+  padding: 28px 20px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   z-index: 1000;
 
   .filter-dropdown-item {
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.25rem;
 
     label {
       display: block;
@@ -42,6 +42,7 @@
   .filter-dropdown-actions {
     display: flex;
     justify-content: space-between;
+    // padding-bottom: 1.75rem;
 
     button {
       padding: 10px 20px;

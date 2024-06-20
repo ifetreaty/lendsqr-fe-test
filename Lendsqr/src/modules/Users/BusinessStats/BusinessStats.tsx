@@ -11,7 +11,7 @@ import { formatNumberWithThousandSeparators } from "../../../helpers/utilityFunc
 export default function BusinessStats() {
   const stats = [
     {
-      title: "Total Users",
+      title: "Users",
       value: mockUserStats.totalUsers,
       image: totalUsersIcon,
     },
