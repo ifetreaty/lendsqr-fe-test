@@ -1,14 +1,33 @@
+import { useEffect, useState } from "react";
 import logoSvg from "../../assets/logo.svg";
 import { BellIcon, SearchIcon } from "../../components/icons/TopNavIcons";
 import { AvatarIcon } from "../../components/icons/UserDetailsIcons";
-import { useUserContext } from "../../context/UserContext";
-import { extractFirstName } from "../../helpers/utilityFunctions";
 import "./LandingNavbar.scss";
 
-export default function LandingNavbar() {
-  const { selectedUser } = useUserContext();
+interface ILandingNavbarProps {
+  isSidebarOpen: boolean;
+  toggleSidebar: () => void;
+}
 
-  const fullName = selectedUser?.generalDetails?.personalInformation?.fullName;
+export default function LandingNavbar({
+  isSidebarOpen,
+  toggleSidebar,
+}: ILandingNavbarProps) {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth <= 768) {
+        setIsMobile(true);
+      } else {
+        setIsMobile(false);
+      }
+    };
+
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   return (
     <div className="top-nav">

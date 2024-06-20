@@ -15,7 +15,6 @@
   
 
   .content {
-    // margin-left: 200px;
     margin-top: 60px;
     padding: 20px;
     width: calc(100% - 200px);
@@ -35,9 +34,65 @@
 
 .unauthenticated-layout {
   display: flex;
-  // justify-content: center;
   padding: 0 2rem;
   align-items: center;
   height: 100vh;
   width: 100%;
+}
+
+
+.app-container {
+  display: flex;
+  transition: all 0.3s ease;
+
+  &.sidebar-open {
+    .main-content {
+      width: 100%;
+      transition: margin-left 0.3s ease;
+    
+      @media (max-width: 768px) {
+        margin-left: 0;
+      }
+    }
+  }
+
+ 
+  &.sidebar-closed {
+    .main-content {
+      margin-left: 0;
+      width: 100%;
+    }
+  }
+}
+
+.sidebar-toggle {
+  display: none;
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  background: none;
+  border: none;
+  z-index: 1100;
+  cursor: pointer;
+
+  svg {
+    width: 24px;
+    height: 24px;
+    fill: $primary-font-blue;
+  }
+
+  @media (max-width: 768px) {
+    display: block;
+  }
+}
+
+
+
+.main-content {
+  width: 100%;
+  transition: margin-left 0.3s ease;
+
+  @media (max-width: 768px) {
+    margin-left: 0;
+  }
 }
