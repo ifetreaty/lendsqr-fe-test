@@ -1,32 +1,17 @@
 import "./SkeletonLoader.scss";
 
-const SkeletonLoader = () => {
+export default function SkeletonLoader({ rows = 10, columns = 6 }) {
   return (
-    <tbody>
-      {[...Array(10)].map((_, index) => (
-        <tr key={index} className="skeleton-row">
-          <td className="skeleton-cell">
-            <div className="skeleton"></div>
-          </td>
-          <td className="skeleton-cell">
-            <div className="skeleton"></div>
-          </td>
-          <td className="skeleton-cell">
-            <div className="skeleton"></div>
-          </td>
-          <td className="skeleton-cell">
-            <div className="skeleton"></div>
-          </td>
-          <td className="skeleton-cell">
-            <div className="skeleton"></div>
-          </td>
-          <td className="skeleton-cell">
-            <div className="skeleton"></div>
-          </td>
+    <>
+      {[...Array(rows)].map((_, rowIndex) => (
+        <tr key={rowIndex} className="skeleton-row">
+          {[...Array(columns)].map((_, colIndex) => (
+            <td key={colIndex} className="skeleton-cell">
+              <div className="skeleton"></div>
+            </td>
+          ))}
         </tr>
       ))}
-    </tbody>
+    </>
   );
-};
-
-export default SkeletonLoader;
+}

@@ -35,7 +35,7 @@ export default function LandingNavbar() {
             <AvatarIcon />
           </div>
           <div className="user-name">
-            <h3>{extractFirstName(fullName)}</h3>
+            <h3>User</h3>
           </div>
         </div>
       </div>

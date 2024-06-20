@@ -1,0 +1,66 @@
+@import "../styles/variables";
+
+.coming-soon-page {
+  position: relative;
+  height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .center-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+
+    .content-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      max-width: 450px;
+      margin: 0 auto;
+
+      .coming-soon-image {
+        width: 500px;
+        height: 350px;
+      }
+
+      .coming-soon-heading {
+        line-height: 1.2889;
+        text-align: center;
+        font-weight: 500;
+        color: $primary-font-blue;
+        margin-bottom: 1rem;
+      }
+
+      .coming-soon-text {
+        font-size: 16px;
+        line-height: 1.5;
+        color: $primary-gray;
+        text-align: center;
+        margin-bottom: 2rem;
+      }
+
+      .pill-button {
+        padding: 1rem 2rem;
+        height: 48px;
+        width: 100%;
+        max-width: 200px;
+        background: $primary-teal;
+        color: white;
+        border: none;
+        border-radius: 25px;
+        cursor: pointer;
+        text-align: center;
+        font-size: 1rem;
+        transition: background 0.3s;
+
+        &:hover {
+          background: rgba($primary-teal, 0.7);
+        }
+      }
+    }
+  }
+}

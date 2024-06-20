@@ -104,6 +104,7 @@ export default function UserDetailsPage() {
               {guarantor && (
                 <UserDetailsSection title="Guarantor" data={guarantor} />
               )}
+              {guarantor && <UserDetailsSection title="" data={guarantor} />}
             </div>
           </div>
         ) : (

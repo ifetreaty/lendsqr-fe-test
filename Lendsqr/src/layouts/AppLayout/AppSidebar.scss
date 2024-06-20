@@ -8,8 +8,16 @@ nav {
   top: 100px;
   padding-bottom: 120px;
   overflow-y: auto;
+  overflow-x: hidden;
   height: 100vh;
   font-family: $font-family;
+
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+
+nav::-webkit-scrollbar {
+  display: none; 
+}
 
   h2 {
     font-size: 16px;
@@ -23,7 +31,7 @@ nav {
     font-weight: 500;
     color: $primary-gray;
     margin-bottom: 14px;
-    margin-top: 40px;
+    margin-top: 34px;
   }
 
   ul {
@@ -31,7 +39,7 @@ nav {
     padding: 0;
 
     li {
-      margin-bottom: 30px;
+      margin-bottom: 20px;
 
       a {
         text-decoration: none;
@@ -60,6 +68,23 @@ nav {
 
         span {
           font-size: 16px;
+          margin-right: 10px;
+        }
+      }
+
+    &.switch-organization {
+        margin-bottom: 44px;
+          color: $primary-font-blue;
+        
+          a {
+            opacity: 1;     
+          }
+      }
+
+      &.dashboard {
+        a {
+        margin-bottom: 18px; 
+              
         }
       }
     }

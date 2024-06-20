@@ -1,5 +1,6 @@
 import { IconProps } from "../../components/icons/IconProps";
 import {
+  ArrowDownIcon,
   BadgePercentIcon,
   BankIcon,
   BriefcaseIcon,
@@ -28,6 +29,8 @@ type NavConfigType = {
     title: string;
     path: string;
     icon: (props: IconProps) => JSX.Element;
+    className?: string;
+    secondIcon?: (props: IconProps) => JSX.Element;
   }[];
 }[];
 
@@ -39,6 +42,8 @@ const navConfig: NavConfigType = [
         title: "Switch Organization",
         path: "/app/switch-organization",
         icon: BriefcaseIcon,
+        className: "switch-organization",
+        secondIcon: ArrowDownIcon,
       },
     ],
   },
@@ -49,6 +54,7 @@ const navConfig: NavConfigType = [
         title: "Dashboard",
         path: "/app/dashboard",
         icon: HomeIcon,
+        className: "dashboard",
       },
     ],
   },

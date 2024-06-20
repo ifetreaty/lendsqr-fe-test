@@ -5,8 +5,11 @@ import { useFormik } from "formik";
 
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { useNavigate } from "react-router-dom";
 
 export default function SignInForm() {
+  const navigate = useNavigate();
+
   const [showPassword, setShowPassword] = useState<boolean>(false);
 
   const formik = useFormik({
@@ -29,6 +32,7 @@ export default function SignInForm() {
   }) => {
     if (email === "test@example.com" && password === "Password12*") {
       toast.success("Login successful");
+      navigate("/app/users");
     } else {
       toast.error("Invalid credentials");
     }

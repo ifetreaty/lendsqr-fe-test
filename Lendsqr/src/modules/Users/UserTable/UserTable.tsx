@@ -124,7 +124,7 @@ export default function UserTable() {
           </thead>
           <tbody>
             {loading ? (
-              <SkeletonLoader />
+              <SkeletonLoader rows={rowsPerPage} columns={7} />
             ) : (
               currentData.map((user, index) => (
                 <tr key={index}>
