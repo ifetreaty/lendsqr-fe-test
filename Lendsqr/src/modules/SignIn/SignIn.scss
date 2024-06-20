@@ -6,6 +6,13 @@
   width: 100vw;
   overflow: hidden;
 
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  }
+
   &__left,
   &__right {
     flex: 1;
@@ -13,25 +20,63 @@
     flex-direction: column;
     height: 100%;
     max-width: 50%;
+
+    @media (max-width: 768px) {
+      max-width: 100%;
+      align-items: center;
+    }
   }
 
   &__left {
     background-color: #ffffff;
-    padding: 0 2.5rem;
+    padding: 2.5rem;
     gap: 7rem;
-    border-right: 2px solid rgba(hsl(0, 0%, 97%), .9);
+    border-right: 2px solid rgba(hsl(0, 0%, 97%), 0.9);
+
+    @media (max-width: 768px) {
+      padding: 1rem;
+      gap: 2rem;
+      border-right: none;
+      border-bottom: 2px solid rgba(hsl(0, 0%, 97%), 0.9);
+    }
+
+    .sign-in__logo {
+      width: 10rem;
+      margin: 2.625rem 0 0 3rem;
+
+      @media (max-width: 768px) {
+        margin: 1rem 3rem;
+        width: 8rem;
+      }
+    }
+
+    .sign-in__illustration {
+      width: 72%;
+      margin-left: 3rem;
+
+      @media (max-width: 768px) {
+        width: 70%;
+        margin-left: 0;
+      }
+    }
   }
 
   &__right {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: #ffffff; 
+    background-color: #ffffff;
     width: 50%;
-    margin-left: auto; 
-    padding: 0 2rem; 
-    align-items: center;
+    margin-left: auto;
+    padding: 2rem;
     padding-top: 9.25rem;
 
+    @media (max-width: 768px) {
+      width: 100%;
+      // padding-top: 2rem;
+    padding: 2rem 0;
+
+    }
   }
 }
+

@@ -6,13 +6,32 @@
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-}
 
-.users-page h1 {
-  font-size: 24px;
-  font-weight: 500;
-  margin-bottom: 40px;
-  margin-left: .5rem;
-  color: $primary-font-blue;
-}
+  h1 {
+    font-size: 24px;
+    font-weight: 500;
+    margin-bottom: 40px;
+    margin-left: 0.5rem;
+    color: $primary-font-blue;
+  }
 
+  @media (max-width: 768px) {
+    padding: 80px 20px;
+
+    h1 {
+      font-size: 20px;
+      margin-bottom: 20px;
+      margin-left: 0;
+    }
+  }
+
+  @media (max-width: 480px) {
+    padding: 70px 10px;
+
+    h1 {
+      font-size: 18px;
+      margin-bottom: 15px;
+      margin-left: 0;
+    }
+  }
+}

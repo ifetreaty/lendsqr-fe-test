@@ -43,7 +43,7 @@
       padding: 12px 20px;
       border: 1px solid rgba($primary-font-blue, 0.2);
       border-radius: 8px 0 0 8px;
-      font-family: $font-family;
+      font-family: $font-family-work-sans;
       font-size: 14px;
       font-weight: 400;
 
@@ -115,7 +115,7 @@
 
     .top-nav__link {
       margin-right: 20px;
-      font-family: $font-family;
+      font-family: $font-family-work-sans;
       font-size: 16px;
       color: $primary-gray;
       text-decoration: underline;

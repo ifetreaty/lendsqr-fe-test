@@ -2,47 +2,60 @@
 
 .user-details-section {
   padding: 30px 10px;
-  background-color: #ffffff; 
+  background-color: #ffffff;
 
- 
+  @media (max-width: 768px) {
+    padding: 20px 10px;
+  }
+
   h3 {
     margin-bottom: 20px;
     font-size: 16px;
     font-weight: 500;
     color: $primary-font-blue;
 
+    @media (max-width: 768px) {
+      font-size: 14px;
+    }
   }
 
   .details-content {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(20%, 1fr));
     gap: 30px;
-  
+
+    @media (max-width: 1024px) {
+      grid-template-columns: repeat(auto-fill, minmax(40%, 1fr));
+    }
+
+    @media (max-width: 768px) {
+      grid-template-columns: repeat(auto-fill, minmax(100%, 1fr));
+      gap: 20px;
+    }
+
     .details-row {
       display: flex;
       flex-direction: column;
-  
+
       .details-key {
         font-weight: 400;
         font-size: 12px;
         text-transform: uppercase;
         margin-bottom: 5px;
       }
-  
+
       .details-value {
         font-weight: 500;
         font-size: 16px;
+
+        @media (max-width: 768px) {
+          font-size: 14px;
+        }
       }
     }
   }
+
   &:not(:last-child) {
     border-bottom: 1px solid rgba($primary-font-blue, 0.1);
   }
 }
-
-
-
-
-
-
-

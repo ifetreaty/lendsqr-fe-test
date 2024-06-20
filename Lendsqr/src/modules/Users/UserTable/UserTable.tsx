@@ -19,7 +19,6 @@ const rowsPerPage = 10;
 
 export default function UserTable() {
   const { userData, loading, error } = useUserData();
-
   const [currentPage, setCurrentPage] = useState(1);
   const { dropdownIndex, handleDropdownToggle } = useDropdown();
   const [filters, setFilters] = useState({
