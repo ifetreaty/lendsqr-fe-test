@@ -1,23 +1,70 @@
 @import '../../styles/variables';
 
-nav {
+.sidebar-toggle {
+  display: none;
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  background: none;
+  border: none;
+  z-index: 1100;
+  cursor: pointer;
+
+  svg {
+    width: 24px;
+    height: 24px;
+    fill: $primary-font-blue;
+  }
+
+  @media (max-width: 768px) {
+    display: block;
+  }
+}
+
+.sidebar {
   width: 283px;
   background-color: #FFFFFF;
   padding: 30px;
   position: fixed;
   top: 100px;
+  left: 0;
   padding-bottom: 120px;
   overflow-y: auto;
   overflow-x: hidden;
   height: 100vh;
   font-family: $font-family;
-
+  transition: transform 0.3s ease;
   scrollbar-width: none;
   -ms-overflow-style: none;
 
-nav::-webkit-scrollbar {
-  display: none; 
-}
+  @media (max-width: 768px) {
+    width: 100%;
+    padding: 20px;
+    top: 0;
+    height: 100%;
+    padding-bottom: 60px;
+    z-index: 1000;
+    transform: translateX(-100%);
+  }
+
+  &.closed {
+    @media (max-width: 768px) {
+      transform: translateX(-100%);
+    }
+  }
+
+  &.open {
+    transform: translateX(0);
+  }
+
+  @media (max-width: 768px) {
+    width: 100%;
+    padding: 20px;
+    top: 0;
+    height: 100%;
+    padding-bottom: 60px;
+    z-index: 1000;
+  }
 
   h2 {
     font-size: 16px;
@@ -46,7 +93,6 @@ nav::-webkit-scrollbar {
         color: $primary-font-blue;
         display: flex;
         align-items: center;
-        
 
         &.active {
           font-weight: 400;
@@ -72,19 +118,18 @@ nav::-webkit-scrollbar {
         }
       }
 
-    &.switch-organization {
+      &.switch-organization {
         margin-bottom: 44px;
-          color: $primary-font-blue;
-        
-          a {
-            opacity: 1;     
-          }
+        color: $primary-font-blue;
+
+        a {
+          opacity: 1;
+        }
       }
 
       &.dashboard {
         a {
-        margin-bottom: 18px; 
-              
+          margin-bottom: 18px;
         }
       }
     }

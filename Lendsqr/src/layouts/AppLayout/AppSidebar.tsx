@@ -1,11 +1,22 @@
 import { NavLink } from "react-router-dom";
 import navConfig from "./navConfig";
 import { BriefcaseIcon } from "../../components/icons/NavbarIcons";
-import "./AppSidebar.scss";
 
-export default function AppSidebar() {
+import "./AppSidebar.scss";
+import { BellIcon } from "../../components/icons/TopNavIcons";
+import { AvatarIcon } from "../../components/icons/UserDetailsIcons";
+
+interface IAppSidebarProps {
+  isSidebarOpen: boolean;
+  toggleSidebar: () => void;
+}
+
+export default function AppSidebar({
+  isSidebarOpen,
+  toggleSidebar,
+}: IAppSidebarProps) {
   return (
-    <nav>
+    <nav className={`sidebar ${isSidebarOpen ? "open" : ""}`}>
       {navConfig.map((group, index) => (
         <div key={index}>
           {group.navGroup && <div className="nav-group">{group.navGroup}</div>}
@@ -35,6 +46,28 @@ export default function AppSidebar() {
                 </NavLink>
               </li>
             ))}
+            {group.navGroup === "TopNav" && (
+              <>
+                <li className="docs-link">
+                  <a href="/docs" className="top-nav__link">
+                    Docs
+                  </a>
+                </li>
+                <li className="bell-icon">
+                  <div className="top-nav__icon">
+                    <BellIcon />
+                  </div>
+                </li>
+                <li className="user-details">
+                  <div className="user-img">
+                    <AvatarIcon />
+                  </div>
+                  <div className="user-name">
+                    <h3>User</h3>
+                  </div>
+                </li>
+              </>
+            )}
           </ul>
         </div>
       ))}
