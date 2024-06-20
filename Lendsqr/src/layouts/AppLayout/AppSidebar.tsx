@@ -11,7 +11,7 @@ export default function AppSidebar() {
           {group.navGroup && <div className="nav-group">{group.navGroup}</div>}
           <ul>
             {group.navs.map((navItem, idx) => (
-              <li key={idx}>
+              <li key={idx} className={navItem.className}>
                 <NavLink
                   to={navItem.path}
                   className={({ isActive }) =>
@@ -24,6 +24,14 @@ export default function AppSidebar() {
                     <BriefcaseIcon width="20px" height="20px" />
                   )}
                   <span>{navItem.title}</span>
+                  {navItem.className === "switch-organization" &&
+                    navItem.secondIcon && (
+                      <navItem.secondIcon
+                        width="14px"
+                        height="14px"
+                        className="second-icon"
+                      />
+                    )}
                 </NavLink>
               </li>
             ))}

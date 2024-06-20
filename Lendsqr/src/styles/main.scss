@@ -27,12 +27,10 @@
 
 .authenticated-layout {
   display: flex;
-  height: 100vh;
+  background-color: #f8f9fa;
 
-  main {
-    flex: 1;
-    padding: 20px;
-  }
+
+ 
 }
 
 .unauthenticated-layout {

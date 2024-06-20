@@ -31,7 +31,7 @@ nav::-webkit-scrollbar {
     font-weight: 500;
     color: $primary-gray;
     margin-bottom: 14px;
-    margin-top: 40px;
+    margin-top: 34px;
   }
 
   ul {
@@ -39,7 +39,7 @@ nav::-webkit-scrollbar {
     padding: 0;
 
     li {
-      margin-bottom: 30px;
+      margin-bottom: 20px;
 
       a {
         text-decoration: none;
@@ -68,6 +68,23 @@ nav::-webkit-scrollbar {
 
         span {
           font-size: 16px;
+          margin-right: 10px;
+        }
+      }
+
+    &.switch-organization {
+        margin-bottom: 44px;
+          color: $primary-font-blue;
+        
+          a {
+            opacity: 1;     
+          }
+      }
+
+      &.dashboard {
+        a {
+        margin-bottom: 18px; 
+              
         }
       }
     }

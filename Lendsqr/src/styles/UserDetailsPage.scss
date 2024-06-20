@@ -1,7 +1,7 @@
 @import "./variables";
 
 .user-details-page {
-  padding: 20px;
+  padding: 67px 40px;
 
   .user-info-tabs {
     background-color: #f9f9f9;
@@ -14,7 +14,7 @@
       border: 1px solid rgba(33, 63, 125, 0.06);
       border-radius: 4px;
       margin-top: 20px;
-      padding: 1rem;
+      padding: 1.5rem;
       padding-bottom: 0;
 
       .info {
@@ -22,7 +22,7 @@
         display: flex;
         justify-content: space-between;
         align-items: stretch; 
-        margin-bottom: 60px;
+        margin-bottom: 30px;
 
         .user-details {
           flex: 2; 
@@ -56,7 +56,6 @@
         }
 
         .user-balance {
-          // flex: 2;
           text-align: center;
           padding: 30px 20px;
           h3 {
@@ -118,7 +117,7 @@
       
 
         .tab {
-          padding: 10px 20px;
+          padding: 13px 20px;
           border: none;
           background-color: transparent;
           color: $primary-gray;

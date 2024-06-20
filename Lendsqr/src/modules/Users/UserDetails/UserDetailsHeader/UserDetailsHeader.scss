@@ -1,14 +1,14 @@
 @import "../../../../styles/variables";
 
 .user-details-header-page {
-  padding: 20px;
+  padding: 20px 20px 14px 20px;
 
   .back-to-users {
     display: flex;
     align-items: center;
     cursor: pointer;
     color: $primary-gray;
-    margin-bottom: 20px;
+    margin-bottom: 12px;
 
     &:hover {
       text-decoration: none;
@@ -23,7 +23,6 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 20px;
 
     h1 {
       margin-top: 0;
