@@ -4,15 +4,7 @@ import { BellIcon, SearchIcon } from "../../components/icons/TopNavIcons";
 import { AvatarIcon } from "../../components/icons/UserDetailsIcons";
 import "./LandingNavbar.scss";
 
-interface ILandingNavbarProps {
-  isSidebarOpen: boolean;
-  toggleSidebar: () => void;
-}
-
-export default function LandingNavbar({
-  isSidebarOpen,
-  toggleSidebar,
-}: ILandingNavbarProps) {
+export default function LandingNavbar() {
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
@@ -21,6 +13,7 @@ export default function LandingNavbar({
         setIsMobile(true);
       } else {
         setIsMobile(false);
+        console.log(isMobile);
       }
     };
 

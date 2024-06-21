@@ -11,10 +11,7 @@ interface IAppSidebarProps {
   toggleSidebar: () => void;
 }
 
-export default function AppSidebar({
-  isSidebarOpen,
-  toggleSidebar,
-}: IAppSidebarProps) {
+export default function AppSidebar({ isSidebarOpen }: IAppSidebarProps) {
   return (
     <nav className={`sidebar ${isSidebarOpen ? "open" : ""}`}>
       {navConfig.map((group, index) => (
