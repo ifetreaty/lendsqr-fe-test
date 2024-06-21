@@ -45,8 +45,6 @@ export default function UserDetailsPage() {
   const accountNumber = selectedUser?.accountNumber;
   const bank = selectedUser?.bank;
 
-  console.log("selected: ", selectedUser);
-
   return (
     <div className="user-details-page">
       <UserDetailsHeader

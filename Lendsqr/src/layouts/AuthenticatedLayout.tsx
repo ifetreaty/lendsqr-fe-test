@@ -1,9 +1,9 @@
 import { Outlet } from "react-router-dom";
 import AppSidebar from "../layouts/AppLayout/AppSidebar";
-import LandingNavbar from "../layouts/LandingLayout/LandingNavbar";
 import { useEffect, useState } from "react";
 
 import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
+import LandingNavbar from "./LandingLayout/LandingNavbar";
 
 export default function AuthenticatedLayout() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
@@ -31,7 +31,6 @@ export default function AuthenticatedLayout() {
   };
 
   return (
-    // <div className="authenticated-layout">
     <div
       className={`authenticated-layout app-container ${
         isSidebarOpen ? "sidebar-open" : "sidebar-closed"
