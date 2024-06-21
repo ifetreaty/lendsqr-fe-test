@@ -102,3 +102,33 @@ export const extractFirstName = (fullName: string | undefined): string => {
     return "";
   }
 };
+
+/**
+ * Filters user data based on provided filters.
+ * @param {Array} userData - The user data to filter.
+ * @param {Object} filters - The filters to apply.
+ * @returns {Array} The filtered user data.
+ */
+export const filterUserData = (
+  userData: Array<any>,
+  filters: Record<string, string>
+): Array<any> => {
+  return userData.filter((user) => {
+    return Object.keys(filters).every((key) => {
+      const filterValue = filters[key as keyof typeof filters];
+      const userValue = user[key as keyof typeof user];
+
+      if (!filterValue) return true;
+
+      if (typeof userValue === "string") {
+        return userValue.toLowerCase().includes(filterValue.toLowerCase());
+      } else if (typeof userValue === "number") {
+        return userValue.toString().includes(filterValue);
+      } else if (userValue instanceof Date) {
+        return userValue.toISOString().includes(filterValue);
+      }
+
+      return true;
+    });
+  });
+};
