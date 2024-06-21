@@ -44,6 +44,17 @@ npm install
 
 #### or
 
+
 ```js
+yarn install
+
+```
+
+# Usage
+
+### Run the development server
+
+```js
+npm run dev
 
 ```
