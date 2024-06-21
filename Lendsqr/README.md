@@ -36,26 +36,6 @@ cd lendsqr-fe-test
 
 ```
 
-# Install dependencies
-
-```js
-npm install
-
-```
-# or
-
-```js
-yarn install
-
-```
-
-### Navigate into the project directory
-
-```js
-cd lendsqr-fe-test
-
-```
-
 ### Install dependencies
 
 ```js
