@@ -14,6 +14,7 @@ export default function LandingNavbar() {
       } else {
         setIsMobile(false);
         console.log(isMobile);
+        //test
       }
     };
 
