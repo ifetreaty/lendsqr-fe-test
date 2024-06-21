@@ -30,7 +30,7 @@ export default function SignInForm() {
     email: string;
     password: string;
   }) => {
-    if (email === "test@example.com" && password === "Password12*") {
+    if (email === "test@lendsqr.com" && password === "Password12*") {
       toast.success("Login successful");
       navigate("/app/users");
     } else {
