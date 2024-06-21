@@ -15,6 +15,8 @@ import {
 import DropdownMenu from "./ActionsMenu/DropdownMenu";
 import FilterDropdownMenu from "./FilterDropdownMenu/FilterDropdownMenu";
 
+import NotepadImg from "../../../assets/notepad-img.svg";
+
 const rowsPerPage = 10;
 
 export default function UserTable() {
@@ -123,6 +125,17 @@ export default function UserTable() {
           <tbody>
             {loading ? (
               <SkeletonLoader rows={rowsPerPage} columns={7} />
+            ) : filteredData.length === 0 ? (
+              <tr>
+                <td colSpan={7} className="no-records-found">
+                  <img
+                    src={NotepadImg}
+                    alt="No records"
+                    className="no-records-image"
+                  />
+                  <p className="no-records-text">No Records Found</p>
+                </td>
+              </tr>
             ) : (
               currentData.map((user, index) => (
                 <tr key={index}>
