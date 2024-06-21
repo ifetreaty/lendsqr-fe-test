@@ -1,4 +1,3 @@
-
 # Description
 
 ## Lendsqr Dashboard
@@ -13,7 +12,6 @@ The Lendsqr Dashboard is a modern web application designed to provide comprehens
 - Pagination: Supports pagination for efficient navigation through large datasets, enhancing performance and user experience.
 - Dropdown Menu: Offers actions such as viewing detailed user profiles, blacklisting users, and activating users via an interactive dropdown menu.
 - Responsive Design: Ensures seamless user experience across devices, including desktops, tablets, and mobile phones.
-
 
 # Technologies Used:
 
