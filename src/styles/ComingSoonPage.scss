@@ -25,10 +25,10 @@
       .coming-soon-image {
         width: 500px;
         height: 350px;
+        
       }
 
       .coming-soon-heading {
-        line-height: 1.2889;
         text-align: center;
         font-weight: 500;
         color: $primary-font-blue;
@@ -36,7 +36,7 @@
       }
 
       .coming-soon-text {
-        font-size: 16px;
+        font-size: 1rem;
         line-height: 1.5;
         color: $primary-gray;
         text-align: center;
@@ -59,6 +59,60 @@
 
         &:hover {
           background: rgba($primary-teal, 0.7);
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .coming-soon-page {
+  padding: 1rem;
+
+    .center-container {
+    position: relative;
+
+      .content-container {
+      padding: 1rem;
+      .coming-soon-image {
+      width: 100%;
+        max-width: 500px;
+        height: auto;
+      }
+        .coming-soon-heading {
+          font-size: 1.25rem;
+        }
+
+        .coming-soon-text {
+          font-size: 0.875rem;
+        padding: 0 1rem;
+
+        }
+
+      .pill-button {
+        padding: .75rem 1.5rem;
+        height: 36px;
+        font-size: .75rem;
+      }
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .coming-soon-page {
+    .center-container {
+      .content-container {
+        .coming-soon-heading {
+          font-size: 1rem;
+        }
+
+        .coming-soon-text {
+          font-size: 0.75rem;
+        }
+
+        .pill-button {
+          padding: 0.75rem 1.5rem;
         }
       }
     }
