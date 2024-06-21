@@ -1,6 +1,6 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
-import { formatDate } from "../../../helpers/utilityFunctions";
+import { filterUserData, formatDate } from "../../../helpers/utilityFunctions";
 
 import "./UserTable.scss";
 import Pagination from "../../../components/custom/CustomPagination/Pagination";
@@ -19,60 +19,57 @@ import NotepadImg from "../../../assets/notepad-img.svg";
 
 const rowsPerPage = 10;
 
+const initialFilters = {
+  organization: "",
+  username: "",
+  email: "",
+  phoneNumber: "",
+  dateJoined: "",
+  status: "",
+};
+
 export default function UserTable() {
   const { userData, loading, error } = useUserData();
   const [currentPage, setCurrentPage] = useState(1);
   const { dropdownIndex, handleDropdownToggle } = useDropdown();
-  const [filters, setFilters] = useState({
-    organization: "",
-    username: "",
-    email: "",
-    phoneNumber: "",
-    dateJoined: "",
-    status: "",
-  });
+  const [filters, setFilters] = useState(initialFilters);
 
   const [filterDropdownVisible, setFilterDropdownVisible] = useState<
     string | null
   >(null);
+
+  const filterDropdownRef = useRef<HTMLDivElement | null>(null);
 
   const handleFilterChange = (column: string, value: string) => {
     setFilters((prev) => ({ ...prev, [column]: value }));
   };
 
   const handleResetFilters = () => {
-    setFilters({
-      organization: "",
-      username: "",
-      email: "",
-      phoneNumber: "",
-      dateJoined: "",
-      status: "",
-    });
+    setFilters(initialFilters);
+    setFilterDropdownVisible(null);
   };
 
   const handleFilter = () => {
     setFilterDropdownVisible(null);
   };
 
-  const filteredData = userData.filter((user) => {
-    return Object.keys(filters).every((key) => {
-      const filterValue = filters[key as keyof typeof filters];
-      const userValue = user[key as keyof typeof user];
-
-      if (!filterValue) return true;
-
-      if (typeof userValue === "string") {
-        return userValue.toLowerCase().includes(filterValue.toLowerCase());
-      } else if (typeof userValue === "number") {
-        return userValue.toString().includes(filterValue);
-      } else if (userValue instanceof Date) {
-        return userValue.toISOString().includes(filterValue);
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        filterDropdownRef.current &&
+        !filterDropdownRef.current.contains(event.target as Node)
+      ) {
+        setFilterDropdownVisible(null);
       }
+    };
 
-      return true;
-    });
-  });
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
+  const filteredData = filterUserData(userData, filters);
 
   const indexOfLastItem = currentPage * rowsPerPage;
   const indexOfFirstItem = indexOfLastItem - rowsPerPage;
@@ -111,12 +108,14 @@ export default function UserTable() {
                     />
                   </div>
                   {filterDropdownVisible === header && (
-                    <FilterDropdownMenu
-                      filters={filters}
-                      onFilterChange={handleFilterChange}
-                      onFilter={handleFilter}
-                      onReset={handleResetFilters}
-                    />
+                    <div ref={filterDropdownRef}>
+                      <FilterDropdownMenu
+                        filters={filters}
+                        onFilterChange={handleFilterChange}
+                        onFilter={handleFilter}
+                        onReset={handleResetFilters}
+                      />
+                    </div>
                   )}
                 </th>
               ))}
