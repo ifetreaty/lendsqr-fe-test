@@ -1,3 +1,4 @@
+import axios from "axios";
 import { transformApiResponse } from "../helpers/transformApiResponse";
 import { TGender } from "../types/generalDetails";
 import { IUserData, TStatus } from "../types/userData";
@@ -39,14 +40,10 @@ export type TApiResponse = {
 
 export const fetchUserData = async (): Promise<IUserData[]> => {
   try {
-    const response = await fetch(
+    const response = await axios.get<TApiResponse[]>(
       `${baseUrl}/57321e4a-9dcd-4f0e-86a3-2bb715cdb0da`
     );
-    if (!response.ok) {
-      throw new Error("Failed to fetch user data");
-    }
-    const data: TApiResponse[] = await response.json();
-    return data.map(transformApiResponse);
+    return response.data.map(transformApiResponse);
   } catch (error) {
     console.error("Error fetching user data:", error);
     throw error;
