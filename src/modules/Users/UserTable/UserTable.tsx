@@ -74,7 +74,6 @@ export default function UserTable() {
 
   const indexOfLastItem = currentPage * rowsPerPage;
   const indexOfFirstItem = indexOfLastItem - rowsPerPage;
-  // const currentData = userData.slice(indexOfFirstItem, indexOfLastItem);
   const currentData = filteredData.slice(indexOfFirstItem, indexOfLastItem);
 
   if (error) {
