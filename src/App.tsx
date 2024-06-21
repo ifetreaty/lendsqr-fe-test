@@ -19,8 +19,13 @@ function App() {
     <UserProvider>
       <Router>
         <Routes>
+          <Route path="/" element={<Navigate to="/login" />} />
           <Route element={<UnauthenticatedLayout />}>
-            <Route path="/app/login" element={<LoginPage />} />
+            <Route path="/login" element={<LoginPage />} />
+            <Route
+              path="/app/*"
+              element={<Navigate to="/coming-soon" replace />}
+            />
           </Route>
           <Route element={<AuthenticatedLayout />}>
             <Route path="/app/users" element={<UsersPage />} />
@@ -30,7 +35,6 @@ function App() {
             />
           </Route>
           <Route path="/coming-soon" element={<ComingSoonPage />} />
-          <Route path="*" element={<Navigate to="/coming-soon" />} />
         </Routes>
       </Router>
     </UserProvider>
