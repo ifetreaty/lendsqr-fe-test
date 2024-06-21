@@ -23,24 +23,58 @@ The Lendsqr Dashboard is a modern web application designed to provide comprehens
 
 # Installation
 
+### Clone the repository
+
 ```js
-# Clone the repository
+
 git clone https://github.com/ifetreaty/lendsqr-fe-test.git
 
-# Navigate into the project directory
+```
+
+```js
 cd lendsqr-fe-test
 
+```
+
 # Install dependencies
+
+```js
 npm install
+
+```
 # or
+
+```js
+yarn install
+
+```
+
+### Navigate into the project directory
+
+```js
+cd lendsqr-fe-test
+
+```
+
+### Install dependencies
+
+```js
+npm install
+
+```
+
+#### or
+
+```js
 yarn install
 
 ```
 
 # Usage
 
+### Run the development server
+
 ```js
-# Run the development server
 npm run dev
 
 ```
